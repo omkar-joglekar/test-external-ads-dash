@@ -351,7 +351,7 @@ elif tabs == "Individual Ad Breakdown":
                                                 filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead source"] == lead_source_filter) & 
                                                                 (filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                 (filtered_df_AID["Lead Created Date"] <= end_date)]
-                                                filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
+                                                filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%b %e, %Y')
                                         
                                                 filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
                                                 filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
