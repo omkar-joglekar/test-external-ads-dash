@@ -301,6 +301,6 @@ elif tabs == "Individual Ad Breakdown":
                                                             ('FACEBOOK','FACEBOOKSPRING','GOOGLE', 'SPRINGGOOGLEBRANDED', 'GOOGLEPMAX', 'TIKTOK','YOUTUBE','BING')
                                                             group by 1,2,3
                                                             order by 1,2;''')
-                                                df_AID=pd.DataFrame(rows_AID)
-                                                df_AID.columns += 1
-                                                df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
+                                        df_AID=pd.DataFrame(rows_AID)
+                                        df_AID.columns += 1
+                                        df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
