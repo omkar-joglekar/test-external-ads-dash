@@ -328,7 +328,7 @@ elif tabs == "Individual Ad Breakdown":
                                                     "CPLead": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Leads"].sum(),
                                                     "CP Verified Leads": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Verified Leads"].sum(),
                                                     "CPOpps": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Opps"].sum(),
-                                                    "CPFunded": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Funded"].sum().fillna(0),
+                                                    "CPFunded": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Funded"].sum(),
                                                     })
 
                                                     filtered_df_AID = pd.concat([filtered_df_AID, grand_totals], ignore_index=True)
