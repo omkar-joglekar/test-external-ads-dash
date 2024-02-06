@@ -257,7 +257,7 @@ if tabs == "Ads Dashboard":
                                                     "CPLead": "${:,.2f}",
                                                     "CP Verified Leads": "${:,.2f}",
                                                     "CPOpps": "${:,.2f}",
-                                                    "CPFunded": "${:,.2f}",
+                                                    "CPFunded": "${:,.2f}"
                                                 })
                                                 
                                                 
@@ -323,7 +323,7 @@ elif tabs == "Individual Ad Breakdown":
                                                     "CPLead": "${:,.2f}",
                                                     "CP Verified Leads": "${:,.2f}",
                                                     "CPOpps": "${:,.2f}",
-                                                    "CPFunded": "${:,.2f}",
+                                                    "CPFunded": "${:,.2f}"
                                                 })
 
                                         st.table(formatted_df_AID)    
