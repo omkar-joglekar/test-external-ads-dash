@@ -288,7 +288,7 @@ elif tabs == "Individual Ad Breakdown":
                                     # Add another query and table for the new tab
                                         # HTML string for the title
                                         html_str = f"""
-                                        <h2 style='text-align: center; color: white;'>Individual Ad Breakdown</h2>
+                                        <h1 style='text-align: center; color: white;'>Individual Ad Breakdown</h1>
                                                 """
                                         st.markdown(html_str, unsafe_allow_html=True)
                                         rows_AID = run_query('''select   case when date_f is null then lead_created_date else date_f end as date_2,
