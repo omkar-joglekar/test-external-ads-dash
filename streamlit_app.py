@@ -66,7 +66,12 @@ with st.sidebar:
                    end_date = st.date_input("Select End Date:", value=default_end_date)
                    lead_source_filter = st.radio("Select Lead Source:", lead_source_options, index=len(lead_source_options)-1)
     
-
+ hide_table_row_index = """
+                                                                        <style>
+                                                                            thead tr th:first-child {display:none}
+                                                                            tbody th {display:none}
+                                                                        </style>
+                                                                    """
 # Check the selected tab and display content accordingly
 if tabs == "Ads Dashboard":
     # ... (rest of your Ads Dashboard code)
@@ -74,12 +79,7 @@ if tabs == "Ads Dashboard":
                                                 
                                                 
                                                 
-                                                hide_table_row_index = """
-                                                                        <style>
-                                                                            thead tr th:first-child {display:none}
-                                                                            tbody th {display:none}
-                                                                        </style>
-                                                                    """
+                                               
                                                 
                                                 # HTML string for the title
                                                 html_str = f"""
@@ -311,3 +311,4 @@ elif tabs == "Individual Ad Breakdown":
                                         filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                      (filtered_df_AID["Lead Created Date"] <= end_date)]
                                         st.table(filtered_df_AID)    
+                                        st.markdown(hide_table_row_index, unsafe_allow_html=True)
