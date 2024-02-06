@@ -31,7 +31,7 @@ def run_query(query, params=None):
         return cur.fetchall()
         
 tabs = st.sidebar.radio("Select:", ["Ads Dashboard", "Individual Ad Breakdown"])
-    with st.sidebar:
+with st.sidebar:
                    st.write("Filters")
                    lead_source_options = list(sorted(df["Lead source"].unique())) + ["ALL"] 
                                                         
