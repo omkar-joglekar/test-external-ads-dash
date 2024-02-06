@@ -310,5 +310,21 @@ elif tabs == "Individual Ad Breakdown":
                                         filtered_df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
                                         filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                      (filtered_df_AID["Lead Created Date"] <= end_date)]
-                                        st.table(filtered_df_AID)    
+                                        filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
+                                        formatted_df_AID = filtered_df_AID.style.format({
+                                                    "Total Leads": "{:,.0f}",
+                                                    "Verified Leads": "{:,.0f}",
+                                                    "Total Opps": "{:,.0f}",
+                                                    "Lead to Opp %": '{:,.2%}',
+                                                    "Total Funded": "{:,.0f}",
+                                                    "Lead to Funded %": '{:,.2%}',
+                                                    "Opp to Funded %": '{:,.2%}',
+                                                    "Total Spend": "${:,.2f}",
+                                                    "CPLead": "${:,.2f}",
+                                                    "CP Verified Leads": "${:,.2f}",
+                                                    "CPOpps": "${:,.2f}",
+                                                    "CPFunded": "${:,.2f}",
+                                                })
+
+                                        st.table(formatted_df_AID)    
                                         st.markdown(hide_table_row_index, unsafe_allow_html=True)
