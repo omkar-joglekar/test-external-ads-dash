@@ -311,6 +311,20 @@ elif tabs == "Individual Ad Breakdown":
                                         filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                      (filtered_df_AID["Lead Created Date"] <= end_date)]
                                         filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
+                                        
+                                        filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
+                                        filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
+                                        filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
+                                        filtered_df_AID["Lead to Opp %"] = filtered_df_AID["Lead to Opp %"].fillna(0)    
+                                        filtered_df_AID["Total Funded"] = filtered_df_AID["Total Funded"].fillna(0)
+                                        filtered_df_AID["Lead to Funded %"] = filtered_df_AID["Lead to Funded %"].fillna(0)
+                                        filtered_df_AID["Opp to Funded %"] = filtered_df_AID["Opp to Funded %"].fillna(0)
+                                        filtered_df_AID["Total Spend"] = filtered_df_AID["Total Spend"].fillna(0)            
+                                        filtered_df_AID["CPLead"] = filtered_df_AID["CPLead"].fillna(0)
+                                        filtered_df_AID["CP Verified Leads"] = filtered_df_AID["CP Verified Leads"].fillna(0)
+                                        filtered_df_AID["CPOpps"] = filtered_df_AID["CPOpps"].fillna(0)
+                                        filtered_df_AID["CPFunded"] = filtered_df_AID["CPFunded"].fillna(0)
+                                        
                                         formatted_df_AID = filtered_df_AID.style.format({
                                                     "Total Leads": "{:,.0f}",
                                                     "Verified Leads": "{:,.0f}",
