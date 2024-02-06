@@ -345,8 +345,8 @@ elif tabs == "Individual Ad Breakdown":
                                         else:
                                                 # Filter the existing DataFrame based on the date range and selected Lead source
                                                 filtered_df_AID = df[(df["Lead source"] == lead_source_filter) & 
-                                                                (filtered_df_AID["Lead Created Date"] >= start_date) & 
-                                                                (filtered_df_AID["Lead Created Date"] <= end_date)]
+                                                                (df["Lead Created Date"] >= start_date) & 
+                                                                (df["Lead Created Date"] <= end_date)]
                                                 #filtered_df = filtered_df.drop(columns=["Lead source"])
                                                 filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
                                         
