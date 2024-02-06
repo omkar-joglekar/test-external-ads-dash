@@ -340,7 +340,7 @@ elif tabs == "Individual Ad Breakdown":
                                                     "CPFunded": "${:,.2f}"
                                                 })
                                         
-                                        else:
+                                        elif lead_source_filter <> "ALL":
                                                 # Filter the existing DataFrame based on the date range and selected Lead source
                                         filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead source"] == lead_source_filter) & 
                                                                 (filtered_df_AID["Lead Created Date"] >= start_date) & 
