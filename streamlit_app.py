@@ -284,7 +284,7 @@ elif tabs == "Individual Ad Breakdown":
                                     # Add another query and table for the new tab
                                         st.subheader("Individual Ad Breakdown")    
                                         if lead_source_filter == "ALL":
-                                        rows_AID = run_query('''select   case when date_f is null then lead_created_date else date_f end as date_2,
+                                                    rows_AID = run_query('''select   case when date_f is null then lead_created_date else date_f end as date_2,
                                                             CASE   WHEN lead_source = 'SPRINGFACEBOOK' THEN 'FACEBOOK' 
                                                             WHEN lead_source_f is null then lead_source 
                                                             else lead_source_f END AS lead_source2, 
@@ -301,6 +301,6 @@ elif tabs == "Individual Ad Breakdown":
                                                             ('FACEBOOK','FACEBOOKSPRING','GOOGLE', 'SPRINGGOOGLEBRANDED', 'GOOGLEPMAX', 'TIKTOK','YOUTUBE','BING')
                                                             group by 1,2,3
                                                             order by 1,2;''')
-                                        df_AID=pd.DataFrame(rows_AID)
-                                        df_AID.columns += 1
-                                        df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
+                                                df_AID=pd.DataFrame(rows_AID)
+                                                df_AID.columns += 1
+                                                df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
