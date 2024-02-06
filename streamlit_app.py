@@ -30,20 +30,21 @@ def run_query(query, params=None):
             cur.execute(query)
         return cur.fetchall()
         
- rows = run_query('''SELECT lead_source,
-                            LEAD_CREATED_DATE,
-                            ZEROIFNULL(TOTAL_LEADS),
-                            ZEROIFNULL(VERIFIEDLEADS),
-                            ZEROIFNULL(TOTAL_OPPS),
-                            LEAD_TO_OPP,
-                            ZEROIFNULL(TOTAL_FUNDED),
-                            LEAD_TO_FUNDED,
-                            OPP_TO_FUNDED,
-                            TOTAL_SPEND,
-                            CPLEAD,
-                            CPVERIFIEDLEADS,
-                            CPOPP,
-                            CPFUNDED FROM CD_ANALYTICS_TESTDB.OMKAR.Streamlit_Ads_dashboard ORDER BY 2;''')
+ rows = run_query('''SELECT 
+        lead_source,
+        LEAD_CREATED_DATE,
+        ZEROIFNULL(TOTAL_LEADS),
+        ZEROIFNULL(VERIFIEDLEADS),
+        ZEROIFNULL(TOTAL_OPPS),
+        LEAD_TO_OPP,
+        ZEROIFNULL(TOTAL_FUNDED),
+        LEAD_TO_FUNDED,
+        OPP_TO_FUNDED,
+        TOTAL_SPEND,
+        CPLEAD,
+        CPVERIFIEDLEADS,
+        CPOPP,
+        CPFUNDED FROM CD_ANALYTICS_TESTDB.OMKAR.Streamlit_Ads_dashboard ORDER BY 2;''')
 df=pd.DataFrame(rows)
 df.columns += 1
 df.columns = ["Lead source","Lead Created Date","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
