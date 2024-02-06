@@ -312,7 +312,24 @@ elif tabs == "Individual Ad Breakdown":
                                                     filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                                      (filtered_df_AID["Lead Created Date"] <= end_date)]
                                                     filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%b %e, %Y')
-                                                            
+                                                    
+                                                    grand_totals = pd.DataFrame({
+                                                    "Lead Created Date": ["Grand Total"],
+                                                    "Total Leads": filtered_df_AID["Total Leads"].sum(),
+                                                    "Verified Leads": filtered_df_AID["Verified Leads"].sum(),
+                                                    "Total Opps": filtered_df_AID["Total Opps"].sum(),
+                                                    "Lead to Opp %": filtered_df_AID["Total Opps"].sum() / filtered_df_AID["Total Leads"].sum(),
+                                                    "Total Funded": filtered_df_AID["Total Funded"].sum(),
+                                                    "Lead to Funded %": filtered_df_AID["Total Funded"].sum() / filtered_df_AID["Total Leads"].sum(),
+                                                    "Opp to Funded %": filtered_df_AID["Total Funded"].sum() / filtered_df_AID["Total Opps"].sum(),
+                                                    "Total Spend": filtered_df_AID["Total Spend"].sum(),
+                                                    "CPLead": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Leads"].sum(),
+                                                    "CP Verified Leads": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Verified Leads"].sum(),
+                                                    "CPOpps": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Opps"].sum(),
+                                                    "CPFunded": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Funded"].sum(),
+                                                    })
+
+                                                    filtered_df_AID = pd.concat([filtered_df_AID, grand_totals], ignore_index=True)
                                                     filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
                                                     filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
                                                     filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
@@ -352,7 +369,24 @@ elif tabs == "Individual Ad Breakdown":
                                                                 (filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                 (filtered_df_AID["Lead Created Date"] <= end_date)]
                                                 filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%b %e, %Y')
-                                        
+
+                                                grand_totals = pd.DataFrame({
+                                                    "Lead Created Date": ["Grand Total"],
+                                                    "Total Leads": filtered_df_AID["Total Leads"].sum(),
+                                                    "Verified Leads": filtered_df_AID["Verified Leads"].sum(),
+                                                    "Total Opps": filtered_df_AID["Total Opps"].sum(),
+                                                    "Lead to Opp %": filtered_df_AID["Total Opps"].sum() / filtered_df_AID["Total Leads"].sum(),
+                                                    "Total Funded": filtered_df_AID["Total Funded"].sum(),
+                                                    "Lead to Funded %": filtered_df_AID["Total Funded"].sum() / filtered_df_AID["Total Leads"].sum(),
+                                                    "Opp to Funded %": filtered_df_AID["Total Funded"].sum() / filtered_df_AID["Total Opps"].sum(),
+                                                    "Total Spend": filtered_df_AID["Total Spend"].sum(),
+                                                    "CPLead": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Leads"].sum(),
+                                                    "CP Verified Leads": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Verified Leads"].sum(),
+                                                    "CPOpps": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Opps"].sum(),
+                                                    "CPFunded": filtered_df_AID["Total Spend"].sum() / filtered_df_AID["Total Funded"].sum(),
+                                                    })
+                                                
+                                                filtered_df_AID = pd.concat([filtered_df_AID, grand_totals], ignore_index=True)
                                                 filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
                                                 filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
                                                 filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
