@@ -29,7 +29,8 @@ def run_query(query, params=None):
         else:
             cur.execute(query)
         return cur.fetchall()
-
+        
+tabs = st.sidebar.radio("Select:", ["Ads Dashboard", "Individual Ad Breakdown"])
     with st.sidebar:
                    st.write("Filters")
                    lead_source_options = list(sorted(df["Lead source"].unique())) + ["ALL"] 
@@ -44,7 +45,7 @@ def run_query(query, params=None):
                    start_date = st.date_input("Select Start Date:", value=default_start_date)
                    end_date = st.date_input("Select End Date:", value=default_end_date)
                    lead_source_filter = st.radio("Select Lead Source:", lead_source_options, index=len(lead_source_options)-1)
-    tabs = st.sidebar.radio("Select:", ["Ads Dashboard", "Individual Ad Breakdown"])
+    
 
 # Check the selected tab and display content accordingly
 if tabs == "Ads Dashboard":
