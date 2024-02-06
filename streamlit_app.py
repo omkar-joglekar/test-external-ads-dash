@@ -30,7 +30,8 @@ def run_query(query, params=None):
             cur.execute(query)
         return cur.fetchall()
         
- rows = run_query('''SELECT 
+ rows = run_query(
+        '''SELECT 
         lead_source,
         LEAD_CREATED_DATE,
         ZEROIFNULL(TOTAL_LEADS),
