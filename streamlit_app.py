@@ -30,7 +30,20 @@ def run_query(query, params=None):
             cur.execute(query)
         return cur.fetchall()
 
-
+ with st.sidebar:
+                     st.write("Filters")
+                     lead_source_options = list(sorted(df["Lead source"].unique())) + ["ALL"] 
+                                                        
+                     # Get the first day of the current month
+                     default_start_date = dt.datetime.today().replace(day=1)
+                                                
+                     # Get today's date
+                     default_end_date = dt.datetime.today()
+                                                
+                     # Display the date inputs with default values
+                     start_date = st.date_input("Select Start Date:", value=default_start_date)
+                     end_date = st.date_input("Select End Date:", value=default_end_date)
+                     lead_source_filter = st.radio("Select Lead Source:", lead_source_options, index=len(lead_source_options)-1)
 tabs = st.sidebar.radio("Select:", ["Ads Dashboard", "Individual Ad Breakdown"])
 
 # Check the selected tab and display content accordingly
@@ -75,21 +88,7 @@ if tabs == "Ads Dashboard":
                                                 #options = ["EFS", "Fundies", "CSR Declines", "Progressa & Lendful Funded","CCC & Evergreen Funded"]
                                                 #selected_option = st.selectbox("Select:", options) #label_visibility="collapsed"
                                                 
-                                                with st.sidebar:
-                                                            st.write("Filters")
-                                                            lead_source_options = list(sorted(df["Lead source"].unique())) + ["ALL"] 
-                                                            
-                                                
-                                                            # Get the first day of the current month
-                                                            default_start_date = dt.datetime.today().replace(day=1)
-                                                
-                                                            # Get today's date
-                                                            default_end_date = dt.datetime.today()
-                                                
-                                                            # Display the date inputs with default values
-                                                            start_date = st.date_input("Select Start Date:", value=default_start_date)
-                                                            end_date = st.date_input("Select End Date:", value=default_end_date)
-                                                            lead_source_filter = st.radio("Select Lead Source:", lead_source_options, index=len(lead_source_options)-1)
+                                               
                                                 
                                                 if lead_source_filter == "ALL":
                                                     # Execute the SQL query to get data for all lead sources
