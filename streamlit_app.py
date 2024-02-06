@@ -305,27 +305,27 @@ elif tabs == "Individual Ad Breakdown":
                                                             ('FACEBOOK','FACEBOOKSPRING','GOOGLE', 'SPRINGGOOGLEBRANDED', 'GOOGLEPMAX', 'TIKTOK','YOUTUBE','BING')
                                                             group by 1,2,3
                                                             order by 1,2;''')
-                                                            filtered_df_AID=pd.DataFrame(rows_AID)
-                                                            filtered_df_AID.columns += 1
-                                                            filtered_df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
-                                                            filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead Created Date"] >= start_date) & 
-                                                                                         (filtered_df_AID["Lead Created Date"] <= end_date)]
-                                                            filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
+                                                    filtered_df_AID=pd.DataFrame(rows_AID)
+                                                    filtered_df_AID.columns += 1
+                                                    filtered_df_AID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
+                                                    filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead Created Date"] >= start_date) & 
+                                                                                     (filtered_df_AID["Lead Created Date"] <= end_date)]
+                                                    filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
                                                             
-                                                            filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
-                                                            filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
-                                                            filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
-                                                            filtered_df_AID["Lead to Opp %"] = filtered_df_AID["Lead to Opp %"].fillna(0)    
-                                                            filtered_df_AID["Total Funded"] = filtered_df_AID["Total Funded"].fillna(0)
-                                                            filtered_df_AID["Lead to Funded %"] = filtered_df_AID["Lead to Funded %"].fillna(0)
-                                                            filtered_df_AID["Opp to Funded %"] = filtered_df_AID["Opp to Funded %"].fillna(0)
-                                                            filtered_df_AID["Total Spend"] = filtered_df_AID["Total Spend"].fillna(0)            
-                                                            filtered_df_AID["CPLead"] = filtered_df_AID["CPLead"].fillna(0)
-                                                            filtered_df_AID["CP Verified Leads"] = filtered_df_AID["CP Verified Leads"].fillna(0)
-                                                            filtered_df_AID["CPOpps"] = filtered_df_AID["CPOpps"].fillna(0)
-                                                            filtered_df_AID["CPFunded"] = filtered_df_AID["CPFunded"].fillna(0)
-                                                            
-                                                            formatted_df_AID = filtered_df_AID.style.format({
+                                                    filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
+                                                    filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
+                                                    filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
+                                                    filtered_df_AID["Lead to Opp %"] = filtered_df_AID["Lead to Opp %"].fillna(0)    
+                                                    filtered_df_AID["Total Funded"] = filtered_df_AID["Total Funded"].fillna(0)
+                                                    filtered_df_AID["Lead to Funded %"] = filtered_df_AID["Lead to Funded %"].fillna(0)
+                                                    filtered_df_AID["Opp to Funded %"] = filtered_df_AID["Opp to Funded %"].fillna(0)
+                                                    filtered_df_AID["Total Spend"] = filtered_df_AID["Total Spend"].fillna(0)            
+                                                    filtered_df_AID["CPLead"] = filtered_df_AID["CPLead"].fillna(0)
+                                                    filtered_df_AID["CP Verified Leads"] = filtered_df_AID["CP Verified Leads"].fillna(0)
+                                                    filtered_df_AID["CPOpps"] = filtered_df_AID["CPOpps"].fillna(0)
+                                                    filtered_df_AID["CPFunded"] = filtered_df_AID["CPFunded"].fillna(0)
+                                                          
+                                                    formatted_df_AID = filtered_df_AID.style.format({
                                                                         "Total Leads": "{:,.0f}",
                                                                         "Verified Leads": "{:,.0f}",
                                                                         "Total Opps": "{:,.0f}",
@@ -339,44 +339,44 @@ elif tabs == "Individual Ad Breakdown":
                                                                         "CPOpps": "${:,.2f}",
                                                                         "CPFunded": "${:,.2f}"
                                                                     })
-                                                            st.table(formatted_df_AID)    
-                                                            st.markdown(hide_table_row_index, unsafe_allow_html=True)
+                                                    st.table(formatted_df_AID)    
+                                                    st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                         
                                         else:
                                                 # Filter the existing DataFrame based on the date range and selected Lead source
-                                            filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead source"] == lead_source_filter) & 
+                                                filtered_df_AID = filtered_df_AID[(filtered_df_AID["Lead source"] == lead_source_filter) & 
                                                                 (filtered_df_AID["Lead Created Date"] >= start_date) & 
                                                                 (filtered_df_AID["Lead Created Date"] <= end_date)]
                                                 #filtered_df = filtered_df.drop(columns=["Lead source"])
-                                            filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
+                                                filtered_df_AID["Lead Created Date"] = pd.to_datetime(filtered_df_AID["Lead Created Date"]).dt.strftime('%B %e, %Y')
                                         
-                                            filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
-                                            filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
-                                            filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
-                                            filtered_df_AID["Lead to Opp %"] = filtered_df_AID["Lead to Opp %"].fillna(0)    
-                                            filtered_df_AID["Total Funded"] = filtered_df_AID["Total Funded"].fillna(0)
-                                            filtered_df_AID["Lead to Funded %"] = filtered_df_AID["Lead to Funded %"].fillna(0)
-                                            filtered_df_AID["Opp to Funded %"] = filtered_df_AID["Opp to Funded %"].fillna(0)
-                                            filtered_df_AID["Total Spend"] = filtered_df_AID["Total Spend"].fillna(0)            
-                                            filtered_df_AID["CPLead"] = filtered_df_AID["CPLead"].fillna(0)
-                                            filtered_df_AID["CP Verified Leads"] = filtered_df_AID["CP Verified Leads"].fillna(0)
-                                            filtered_df_AID["CPOpps"] = filtered_df_AID["CPOpps"].fillna(0)
-                                            filtered_df_AID["CPFunded"] = filtered_df_AID["CPFunded"].fillna(0)
-                                            
-                                            formatted_df_AID = filtered_df_AID.style.format({
-                                                        "Total Leads": "{:,.0f}",
-                                                        "Verified Leads": "{:,.0f}",
-                                                        "Total Opps": "{:,.0f}",
-                                                        "Lead to Opp %": '{:,.2%}',
-                                                        "Total Funded": "{:,.0f}",
-                                                        "Lead to Funded %": '{:,.2%}',
-                                                        "Opp to Funded %": '{:,.2%}',
-                                                        "Total Spend": "${:,.2f}",
-                                                        "CPLead": "${:,.2f}",
-                                                        "CP Verified Leads": "${:,.2f}",
-                                                        "CPOpps": "${:,.2f}",
-                                                        "CPFunded": "${:,.2f}"
-                                                    })
-                                            st.table(formatted_df_AID)    
-                                            st.markdown(hide_table_row_index, unsafe_allow_html=True)
+                                                filtered_df_AID["Total Leads"] = filtered_df_AID["Total Leads"].fillna(0)
+                                                filtered_df_AID["Verified Leads"] = filtered_df_AID["Verified Leads"].fillna(0)
+                                                filtered_df_AID["Total Opps"] = filtered_df_AID["Total Opps"].fillna(0)
+                                                filtered_df_AID["Lead to Opp %"] = filtered_df_AID["Lead to Opp %"].fillna(0)    
+                                                filtered_df_AID["Total Funded"] = filtered_df_AID["Total Funded"].fillna(0)
+                                                filtered_df_AID["Lead to Funded %"] = filtered_df_AID["Lead to Funded %"].fillna(0)
+                                                filtered_df_AID["Opp to Funded %"] = filtered_df_AID["Opp to Funded %"].fillna(0)
+                                                filtered_df_AID["Total Spend"] = filtered_df_AID["Total Spend"].fillna(0)            
+                                                filtered_df_AID["CPLead"] = filtered_df_AID["CPLead"].fillna(0)
+                                                filtered_df_AID["CP Verified Leads"] = filtered_df_AID["CP Verified Leads"].fillna(0)
+                                                filtered_df_AID["CPOpps"] = filtered_df_AID["CPOpps"].fillna(0)
+                                                filtered_df_AID["CPFunded"] = filtered_df_AID["CPFunded"].fillna(0)
+                                                
+                                                formatted_df_AID = filtered_df_AID.style.format({
+                                                            "Total Leads": "{:,.0f}",
+                                                            "Verified Leads": "{:,.0f}",
+                                                            "Total Opps": "{:,.0f}",
+                                                            "Lead to Opp %": '{:,.2%}',
+                                                            "Total Funded": "{:,.0f}",
+                                                            "Lead to Funded %": '{:,.2%}',
+                                                            "Opp to Funded %": '{:,.2%}',
+                                                            "Total Spend": "${:,.2f}",
+                                                            "CPLead": "${:,.2f}",
+                                                            "CP Verified Leads": "${:,.2f}",
+                                                            "CPOpps": "${:,.2f}",
+                                                            "CPFunded": "${:,.2f}"
+                                                        })
+                                                st.table(formatted_df_AID)    
+                                                st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                         
