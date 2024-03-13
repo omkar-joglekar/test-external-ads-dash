@@ -447,7 +447,7 @@ elif tabs == "Ad Group Breakdown":
                                                             group by 1,2,3
                                                             order by 1,2;''')
                                   selected_lead_source = "All Lead Sources" if lead_source_filter == "ALL" else lead_source_filter
-                                                         st.subheader(f"Lead Source: {selected_lead_source}")
+                                                         
                                   if lead_source_filter == "ALL":
                                                     
                                                     filtered_df_SUBID=pd.DataFrame(rows_SUBID)
@@ -504,6 +504,7 @@ elif tabs == "Ad Group Breakdown":
                                                                         "CPOpps": "${:,.2f}",
                                                                         "CPFunded": "${:,.2f}"
                                                                     })
+                                                    st.subheader(f"Lead Source: {selected_lead_source}")
                                                     st.table(formatted_df_SUBID)    
                                                     st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                         
@@ -564,6 +565,7 @@ elif tabs == "Ad Group Breakdown":
                                                             "CPOpps": "${:,.2f}",
                                                             "CPFunded": "${:,.2f}"
                                                         })
+                                                st.subheader(f"Lead Source: {selected_lead_source}")
                                                 st.table(formatted_df_SUBID)    
                                                 st.markdown(hide_table_row_index, unsafe_allow_html=True)      
                                         
