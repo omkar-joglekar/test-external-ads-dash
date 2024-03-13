@@ -512,7 +512,7 @@ elif tabs == "Ad Group Breakdown":
                                                 # Filter the existing DataFrame based on the date range and selected Lead source
                                                 filtered_df_SUBID=pd.DataFrame(rows_SUBID)
                                                 filtered_df_SUBID.columns += 1
-                                                filtered_df_SUBID.columns = ["Lead Created Date","Lead source","AID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
+                                                filtered_df_SUBID.columns = ["Lead Created Date","Lead source","SUB ID","Total Leads", "Verified Leads", "Total Opps", "Lead to Opp %", "Total Funded", "Lead to Funded %","Opp to Funded %","Total Spend", "CPLead", "CP Verified Leads", "CPOpps", "CPFunded"]
                                                 filtered_df_SUBID = filtered_df_SUBID[(filtered_df_SUBID["Lead source"] == lead_source_filter) & 
                                                                 (filtered_df_SUBID["Lead Created Date"] >= start_date) & 
                                                                 (filtered_df_SUBID["Lead Created Date"] <= end_date)]
@@ -522,7 +522,7 @@ elif tabs == "Ad Group Breakdown":
                                                 grand_totals = pd.DataFrame({
                                                     "Lead Created Date": ["Grand Total"],
                                                     #"Lead source": [""],
-                                                    "AID":[""],
+                                                    "SUB ID":[""],
                                                     "Total Leads": filtered_df_SUBID["Total Leads"].sum(),
                                                     "Verified Leads": filtered_df_SUBID["Verified Leads"].sum(),
                                                     "Total Opps": filtered_df_SUBID["Total Opps"].sum(),
