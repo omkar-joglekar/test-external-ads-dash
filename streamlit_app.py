@@ -307,7 +307,7 @@ elif tabs == "Individual Ad Breakdown":
                                                             from CD_ANALYTICS_TESTDB.OMKAR.SPRING_ADS_DASHBOARD_TABLE where lead_source2 in 
                                                             ('FACEBOOK','FACEBOOKSPRING','GOOGLE', 'SPRINGGOOGLEBRANDED', 'GOOGLEPMAX', 'TIKTOK','YOUTUBE','BING')
                                                             group by 1,2,3
-                                                            order by 1,2;''')
+                                                            order by 1,4;''')
                                         if lead_source_filter == "ALL":
                                                     
                                                     filtered_df_AID=pd.DataFrame(rows_AID)
