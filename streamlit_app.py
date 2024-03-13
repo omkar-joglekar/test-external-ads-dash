@@ -425,7 +425,7 @@ elif tabs == "Individual Ad Breakdown":
                                                 st.table(formatted_df_AID)    
                                                 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 elif tabs == "Ad Group Breakdown":
-                                   html_str = f"""
+                                        html_str = f"""
                                         <h1 style='text-align: center; color: white;'>Ad Group Breakdown</h1>
                                                 """
                                         st.markdown(html_str, unsafe_allow_html=True)
