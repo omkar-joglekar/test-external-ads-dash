@@ -425,11 +425,11 @@ elif tabs == "Individual Ad Breakdown":
                                                 st.table(formatted_df_AID)    
                                                 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 elif tabs == "Ad Group Breakdown":
-                                        html_str = f"""
-                                        <h1 style='text-align: center; color: white;'>Ad Group Breakdown</h1>
+                                  html_str = f"""
+                                  <h1 style='text-align: center; color: white;'>Ad Group Breakdown</h1>
                                                 """
-                                        st.markdown(html_str, unsafe_allow_html=True)
-                                        rows_SUBID = run_query('''select   case when date_f is null then lead_created_date else date_f end as date_2,
+                                  st.markdown(html_str, unsafe_allow_html=True)
+                                  rows_SUBID = run_query('''select   case when date_f is null then lead_created_date else date_f end as date_2,
                                                             CASE   WHEN lead_source = 'SPRINGFACEBOOK' THEN 'FACEBOOK' 
                                                             WHEN lead_source_f is null then lead_source 
                                                             else lead_source_f END AS lead_source2, 
@@ -446,7 +446,7 @@ elif tabs == "Ad Group Breakdown":
                                                             ('FACEBOOK','FACEBOOKSPRING','GOOGLE', 'SPRINGGOOGLEBRANDED', 'GOOGLEPMAX', 'TIKTOK','YOUTUBE','BING')
                                                             group by 1,2,3
                                                             order by 1,2;''')
-                                        if lead_source_filter == "ALL":
+                                  if lead_source_filter == "ALL":
                                                     
                                                     filtered_df_SUBID=pd.DataFrame(rows_SUBID)
                                                     filtered_df_SUBID.columns += 1
@@ -505,7 +505,7 @@ elif tabs == "Ad Group Breakdown":
                                                     st.table(formatted_df_AID)    
                                                     st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                         
-                                        else:
+                                  else:
                                                 # Filter the existing DataFrame based on the date range and selected Lead source
                                                 filtered_df_SUBID=pd.DataFrame(rows_SUBID)
                                                 filtered_df_SUBID.columns += 1
@@ -563,5 +563,5 @@ elif tabs == "Ad Group Breakdown":
                                                             "CPFunded": "${:,.2f}"
                                                         })
                                                 st.table(formatted_df_AID)    
-                                                st.markdown(hide_table_row_index, unsafe_allow_html=True)
+                                                st.markdown(hide_table_row_index, unsafe_allow_html=True)      
                                         
