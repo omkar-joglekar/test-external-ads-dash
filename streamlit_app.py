@@ -502,7 +502,7 @@ elif tabs == "Ad Group Breakdown":
                                                                         "CPOpps": "${:,.2f}",
                                                                         "CPFunded": "${:,.2f}"
                                                                     })
-                                                    st.table(formatted_df_AID)    
+                                                    st.table(formatted_df_SUBID)    
                                                     st.markdown(hide_table_row_index, unsafe_allow_html=True)
                                         
                                   else:
